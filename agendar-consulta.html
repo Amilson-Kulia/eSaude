@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" href="./img/icos/health_care_hands_doctor_heart_icon_233072.ico" type="image/x-icon">
+    <title>eSaúde Angola - Agendar Consulta</title>
+  <link rel="stylesheet" href="./CSS/agendar-consulta.css">
+  <link rel="stylesheet" href="./CSS/index.css">
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/components/sidebar.js"></script>
+</head>
+<body>
+
+     
+    <custom-navbar></custom-navbar>
+
+  <div class="container">
+
+
+    <h2>Agendar Consulta</h2>
+
+    <form id="formConsulta">
+
+      <label>Posto de Saúde</label>
+      <select id="posto" required>
+        <option value="">Selecione</option>
+        <option>Clinica Sagrada Esperança (Ilha de Luanda)</option>
+        <option>Clinica Sagrada Esperança (Cacuaco)</option>
+        <option>Clínica Girassol</option>
+        <option>Hospital Geral do Sequele</option>
+        <option>Hospital Geral do Prenda</option>
+        <option>Hospital Cemtral do Lubango</option>
+        <option>Hospital Geral de Benguela</option>
+      </select>
+
+      <label>Consulta de...</label>
+      <select id="especialidade" required>
+        <option value="">Selecione</option>
+        <option>Clínica Geral</option>
+        <option>Pediatria</option>
+        <option>Ginecologia</option>
+        <option>Cardiologia</option>
+        <option>Dermatologia</option>
+      </select>
+
+      <label>Nível de urgência</label>
+      <select name="urgencia" id="urgencia">
+        <option value="">Seleciona o nível de urgência</option>
+        <option value="urgente">Urgente - atendimento imediato</option>
+        <option value="alta"> Alta prioridade - atendimento imediato</option>
+        <option value="media">Média prioridade - pode aguardar</option>
+        <option value="bauxa">Baixa prioridade - não é urgente</option>
+      </select>
+
+      <label>Data</label>
+      <input type="date" id="data" required>
+
+      <label>Hora</label>
+      <input type="time" id="hora" required>
+
+      <div class="buttons">
+        <button type="submit">Agendar</button>
+        <button type="button" id="cancelar">Cancelar</button>
+      </div>
+
+    </form>
+  </div>
+
+  <custom-footer></custom-footer>
+
+    <script>
+        feather.replace();
+    </script>
+
+  <script src="js/agendar-consulta.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icos/health_care_hands_doctor_heart_icon_233072.ico" type="image/x-icon">
+    <title> eSaúde Angola - Marcação de Consultas</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+ 
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Marque sua consulta de forma rápida e simples</h1>
+            <p>Evite filas e garanta seu atendimento médico com apenas alguns cliques</p>
+            <div class="cta-buttons">
+                <a href="login.html" class="btn-primary">Entrar</a>
+                <a href="register.html" class="btn-secondary">Registrar</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./img/distintas/3.jpg" alt="Mão e coração">
+        </div>
+    </main>
+
+    <section class="features">
+        <div class="feature-card">
+            <i data-feather="calendar"></i>
+            <h3>Agendamento Online</h3>
+            <p>Escolha o melhor horário para sua consulta sem sair de casa</p>
+        </div>
+        <div class="feature-card">
+            <i data-feather="map-pin"></i>
+            <h3>Postos Próximos</h3>
+            <p>Encontre a unidade de saúde mais conveniente para você</p>
+        </div>
+        <div class="feature-card">
+            <i data-feather="bell"></i>
+            <h3>Lembretes</h3>
+            <p>Receba notificações para não perder sua consulta</p>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <h2>Como Funciona</h2>
+        <div class="steps">
+            <div class="step">
+                <span>1</span>
+                <p>Registre-se ou faça login</p>
+            </div>
+            <div class="step">
+                <span>2</span>
+                <p>Escolha o posto de saúde</p>
+            </div>
+            <div class="step">
+                <span>3</span>
+                <p>Selecione a especialidade</p>
+            </div>
+            <div class="step">
+                <span>4</span>
+                <p>Confirme o horário</p>
+            </div>
+        </div> 
+    </section>
+
+    <section class="reviews-section">
+  <h2>Avaliações dos Usuários</h2> 
+  
+  <div id="reviews-container" class="reviews-grid">
+    </div>
+
+  <div class="pagination-controls">
+    <button id="prevBtn" onclick="changePage(-1)" disabled>Anterior</button>
+    <span id="pageIndicator">Página 1 de 3</span>
+    <button id="nextBtn" onclick="changePage(1)">Próxima</button>
+  </div>
+</section>
+
+<script>
+// 1. Comentários Fixos (Estáticos)
+const staticReviews = [
+  { name: "Estanislau Kulia", spec: "Usuário eSaúde", text: "O sistema apresenta uma boa resposta às ações do utilizador. O carregamento das páginas é rápido e o feedback visual após o agendamento transmite segurança de que a operação foi concluída com sucesso.", stars: "⭐⭐⭐⭐" },
+  { name: "Marilde Cachindele", spec: "Usuário eSaúde", text: "O sistema de agendamento é simples e intuitivo. O processo de marcar uma consulta é rápido, com etapas bem definidas, permitindo que o utilizador complete a ação sem dificuldades, mesmo sem conhecimentos técnicos.", stars: "⭐⭐⭐⭐⭐" },
+  { name: "Helena António", spec: "Usuário eSaúde", text: "A navegação dentro do sistema é clara e organizada. Os menus são fáceis de compreender e as informações essenciais estão bem visíveis, o que torna a experiência do utilizador fluida e eficiente.", stars: "⭐⭐⭐⭐⭐" },
+  { name: "Johny Pena", spec: "Usuário eSaúde", text: "O uso do sistema é bastante prático, especialmente para utilizadores que necessitam agendar consultas com frequência. A estrutura do sistema reduz erros e evita confusões durante o preenchimento dos dados, porém, poderia ser um pouco mais responsivo.", stars: "⭐⭐⭐" },
+  { name: "Mariza Kulia", spec: "Usuário eSaúde", text: "O sistema de agendamento de consultas médicas demonstra facilidade de uso e boa organização funcional. A experiência geral é positiva, contribuindo para a redução do tempo de espera e melhoria do atendimento.", stars: "⭐⭐⭐⭐⭐" }
+];
+
+let currentPage = 1;
+const itemsPerPage = 5;
+
+function renderReviews() {
+  const container = document.getElementById('reviews-container');
+  
+  // 2. Buscar comentários dinâmicos do LocalStorage
+  const dynamicReviewsRaw = JSON.parse(localStorage.getItem('comentariosSite')) || [];
+  
+  // Converter os dados do LocalStorage para o formato do card
+  const dynamicReviews = dynamicReviewsRaw.map(rev => ({
+    name: rev.usuarioNome,
+    spec: "Usuário eSaúde",
+    text: rev.mensagem,
+    stars: "⭐".repeat(rev.estrelas || 5) // Converte número em estrelas
+  }));
+
+  // 3. Juntar Estáticos + Dinâmicos (Dinâmicos aparecem primeiro após os fixos)
+  const allReviews = [...staticReviews, ...dynamicReviews];
+
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const paginatedItems = allReviews.slice(start, end);
+
+  container.innerHTML = paginatedItems.map(item => `
+    <div class="review-card">
+      <div>
+        <div class="stars">${item.stars}</div>
+        <p>"${item.text}"</p>
+      </div>
+      <div>
+        <span class="patient-name">${item.name}</span>
+        <span class="specialty">${item.spec}</span>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('pageIndicator').innerText = `Página ${currentPage} de ${Math.ceil(allReviews.length / itemsPerPage)}`;
+  document.getElementById('prevBtn').disabled = currentPage === 1;
+  document.getElementById('nextBtn').disabled = end >= allReviews.length;
+}
+
+// Adicione esta função que estava faltando!
+function changePage(direction) {
+  // Atualiza a página atual
+  currentPage += direction;
+  
+  // Roda a renderização novamente para mostrar os novos itens
+  renderReviews();
+  
+  // Opcional: Rola a página para o topo das avaliações para melhorar a experiência
+  document.querySelector('.reviews-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Chamar ao carregar
+renderReviews();
+</script>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="js/index.js"></script>
+</body>
+</html>

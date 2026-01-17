@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icos/health_care_hands_doctor_heart_icon_233072.ico" type="image/x-icon">
+    <title>Meu Perfil - eSaúde Angola</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/components/sidebar.js"></script>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <custom-sidebar></custom-sidebar>
+         
+        <div class="main-content">
+            <custom-navbar></custom-navbar>
+            
+            <main class="profile-container">
+                <div class="profile-header">
+                    <h1>Meu Perfil</h1>
+                    <p>Gerencie suas informações pessoais e de segurança</p>
+                </div>
+
+                <div class="profile-card">
+                    <form id="profileForm">
+                        <div class="profile-avatar-section">
+                            <div class="large-avatar" id="userInitials">--</div>
+                            <div class="user-id-badge">ID do Paciente: <span id="displayID">00000</span></div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Nome Completo</label>
+                                <input type="text" id="fullName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="document">Número do BI</label>
+                                <input type="text" id="document" readonly class="readonly-field">
+                                <small>O BI não pode ser alterado após o registro.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthDate">Data de Nascimento</label>
+                                <input type="date" id="birthDate">
+                            </div>
+                        </div>
+
+                        <div class="profile-actions">
+                            <button type="submit" class="btn-save">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>feather.replace();</script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icos/admin_man_person_user_icon_127232.ico" type="image/x-icon">
+    <title>Painel Administrativo - eSaúde</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+    
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="logo">eSaúde Admin</div>
+            <nav>
+                <a href="#estatisticas" class="active"><i data-feather="pie-chart"></i> Estatísticas</a>
+                <a href="#usuarios"><i data-feather="users"></i> Gerir Usuários</a>
+                <a href="#consultas"><i data-feather="calendar"></i> Todas Consultas</a>
+                <a href="#feedbacks"><i data-feather="message-circle"></i> Avaliações</a>
+                <a href="index.html" class="logout"><i data-feather="log-out"></i> Sair</a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Painel de Gestão</h1>
+                <div class="admin-user">Administrador</div>
+            </header>
+
+            <section class="stats-grid" id="estatisticas">
+                <div class="stat-card">
+                    <h3>Usuários</h3>
+                    <p id="totalUsers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Consultas</h3>
+                    <p id="totalConsultas">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Avaliações</h3>
+                    <p id="totalFeedbacks">0</p>
+                </div>
+            </section>
+
+            <section class="admin-section" id="usuarios">
+                <h2>Usuários Cadastrados</h2>
+                <div class="table-container">
+                    <table id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>BI</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="admin-section" id="consultas">
+                <h2>Agendamentos Gerais</h2>
+                <div class="table-container">
+                    <table id="consultasTable">
+                        <thead>
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Contacto</th>
+                                <th>Posto</th>
+                                <th>Especialidade</th>
+                                <th>Data/Hora</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="admin-section" id="feedbacks">
+    <h2>Avaliações e Comentários</h2>
+    <div class="table-container">
+        <table id="feedbacksTable">
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Avaliação</th>
+                    <th>Mensagem</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</section>
+
+        </main>
+    </div>
+    <script src="js/admin.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>

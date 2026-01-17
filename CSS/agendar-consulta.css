@@ -1,0 +1,133 @@
+:root {
+    --primary-color: #096c8a;
+    --secondary-color: #26692998;
+    --accent-color: #fbbc05;
+    --text-color: #202124;
+    --light-text: #5f6368;
+    --background-color: #f8f9fa;
+    --white: #ffffff;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #ecf0f1;
+    --sidebar-active: #3498db;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --base-font-size: 1rem;
+}
+
+html{
+     font-size: var(--base-font-size);
+}
+
+body { 
+  background: #f4f6f8;
+  font-family: Arial, sans-serif;
+}
+
+#back{
+  width: 35px;
+  height: 35px;
+  margin-top: 4px;
+  position: fixed;
+  background: url(../img/icones/back_12955.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#formConsulta{
+  color: white;
+}
+
+.container {
+    max-width: 450px;
+    width: 90%;
+    margin: 30px auto;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem 0.5rem;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid rgb(8, 29, 4);
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+}
+
+#formConsulta input:hover{
+  border-bottom: 2px solid #0ad114f8;
+  transition: 0.5s;
+}
+input:focus{
+  outline: none;
+}
+
+#formConsulta select:hover{
+  border-bottom: 2px solid #0ad114f8;
+  transition: 0.5s;
+}
+select:focus{
+  outline: none;  
+}
+select option {
+    background-color: var(--primary-color);
+    color: white;
+}
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background: #28a745;
+  color: white;
+}
+
+#cancelar {
+  background: #dc3545;
+  color: white;
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button {
+        width: 100%; /* Botões ocupam a largura toda no telemóvel */
+        padding: 15px; /* Maior área de toque */
+    }
+
+    #back {
+        position: absolute; /* Evita que o botão fixo cubra o conteúdo no mobile */
+    }
+}

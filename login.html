@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="./img/icos/health_care_hands_doctor_heart_icon_233072.ico" type="image/x-icon">
+    <title>Login - eSaúde Angola</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="./CSS/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+
+    <main class="login-container">
+        <div class="login-form"> 
+            <h1>Entrar na sua conta</h1>
+            <p>Gerencie suas consultas e tenha acesso a todos os serviços</p>
+             
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="email" name="email" required placeholder="Email ou Telefone">
+                    <i data-feather="mail"></i>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required placeholder="Senha">
+                    <i data-feather="lock"></i>
+                </div>
+                 
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Lembrar-me</label>
+                    </div>
+                    <a href="forgot-password.html" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="btn-login">Entrar</button>
+                
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                
+                <button type="button" class="btn-sms">
+                    <i data-feather="smartphone"></i>
+                    Receber código por SMS
+                </button>
+                
+                <p class="register-link">Não tem uma conta? <a href="register.html">Registre-se</a></p>
+            </form>
+        </div>
+        
+        <div class="login-image">
+            <img src="http://static.photos/medical/640x360/2" alt="Médico atendendo paciente">
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="js/login.js"></script>
+</body>
+</html>

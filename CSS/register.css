@@ -1,0 +1,206 @@
+:root {
+    --primary-color: #096c8a;
+    --secondary-color: #2e7d32a9;
+    --accent-color: #fbbc05;
+    --text-color: #202124;
+    --light-text: #5f6368;
+    --background-color: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --base-font-size: 1rem;
+}
+html{
+    font-size: var(--base-font-size);
+}
+
+/* Ajuste para o grupo de input aceitar a mensagem de erro */
+.form-group {
+    position: relative;
+    margin-bottom: 20px; /* Espaço para a mensagem não empurrar o layout bruscamente */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo da mensagem de erro gerada pelo JS */
+.error-msg-realtime {
+    color: #e74c3c;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    font-weight: 500;
+    order: 3; /* Garante que fique por baixo de tudo no flexbox */
+}
+
+/* Quando o input estiver com erro */
+.form-group input[style*="border-color: rgb(255, 77, 77)"] {
+    background-color: #fff6f6;
+}
+
+.register-container {
+    display: flex; 
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+.register-form {
+    flex: 1;
+    max-width: 500px;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.register-form h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.register-form p {
+    color: var(--light-text);
+    margin-bottom: 2rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 0rem 0.8rem 0rem;
+    border: none;
+    border-bottom: 1px solid rgb(8, 29, 4);
+    font-size: 1rem;
+    transition: var(--transition);
+} 
+
+.form-group input:focus {
+   outline: none;
+}
+
+.form-group input:hover {
+  border-bottom: 2px solid #0ad114f8;
+  transition: 0.2s;
+}
+
+.form-group i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-text);
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-checkbox input {
+    margin-right: 0.5rem;
+}
+
+.form-checkbox label {
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+.form-checkbox a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.form-checkbox a:hover {
+    text-decoration: underline;
+}
+
+.btn-register {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-register:hover {
+    background-color: #0d5bc2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(26, 115, 232, 0.3);
+}
+
+.login-link {
+    text-align: center;
+    color: var(--light-text);
+}
+
+.login-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.register-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.register-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+    }
+    
+    .register-form {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .register-image {
+        display: none;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/icos/health_care_hands_doctor_heart_icon_233072.ico" type="image/x-icon">
+    <title>eSaúde Angola - Painel</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/components/sidebar.js"></script>
+</head>
+<body> 
+    <div class="dashboard-layout">
+        <custom-sidebar></custom-sidebar>
+        
+        <div class="main-content">
+            <custom-navbar></custom-navbar>
+            
+            <main class="dashboard-content">
+                <div class="welcome-banner">
+                    <h1>Bem-vindo, <span id="userName">Usuário</span>!</h1>
+                    <p>Gerencie suas consultas e tenha acesso a todos os serviços</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="appointment-card upcoming">
+                        <h2>Próxima Consulta</h2>
+                        <div class="appointment-details">
+                            <div class="detail">
+                                <i data-feather="calendar"></i>
+                                <span>15 Nov 2023</span>
+                            </div>
+                            <div class="detail">
+                                <i data-feather="clock"></i>
+                                <span>10:30 AM</span>
+                            </div>
+                            <div class="detail">
+                                <i data-feather="map-pin"></i>
+                                <span>Posto de Saúde Central</span>
+                            </div>
+                            <div class="detail">
+                                <i data-feather="user"></i>
+                                <span>Dr. João Silva</span>
+                            </div>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-cancel">Cancelar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-actions">
+                        <h2>Ações Rápidas</h2>
+                        <div class="action-buttons">
+                            <a href="./agendar-consulta.html" class="action-btn">
+                                <i data-feather="plus-circle"></i>
+                                <span>Nova Consulta</span>
+                            </a>
+                            <a href="#consultas" class="action-btn">
+                                <i data-feather="file-text"></i>
+                                <span>Histórico</span>
+                            </a>
+                            <a href="postos.html" class="action-btn">
+                                <i data-feather="map"></i>
+                                <span>Postos de Saúde</span>
+                            </a>
+                            <a href="profile.html" class="action-btn">
+                                <i data-feather="user"></i>
+                                <span>Meu Perfil</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="appointments-list" id="consultas">
+                        <div class="list-header">
+                            <h2>Minhas Consultas</h2>
+                            <div class="view-options">
+                                <button class="active">Todas</button>
+                                <button>Próximas</button>
+                                <button>Passadas</button>
+                            </div>
+                        </div>
+                        
+                        <div class="appointments">
+
+                          
+
+                            <div class="appointment-item">
+                                <div class="appointment-info">
+                                    <h3>Consulta de Clínica Geral</h3>
+                                    <p><i data-feather="calendar"></i> 15 Nov 2023 - 10:30 AM</p>
+                                    <p><i data-feather="map-pin"></i> Posto de Saúde Central</p>
+                                </div>
+                                <div class="appointment-status upcoming">
+                                    <i data-feather="clock"></i>
+                                    <span>Agendada</span>
+                                </div>
+                            </div>
+                            
+                            <div class="appointment-item">
+                                <div class="appointment-info">
+                                    <h3>Consulta de Pediatria</h3>
+                                    <p><i data-feather="calendar"></i> 05 Nov 2023 - 09:00 AM</p>
+                                    <p><i data-feather="map-pin"></i> Posto de Saúde da Mutamba</p>
+                                </div>
+                                <div class="appointment-status completed">
+                                    <i data-feather="check"></i>
+                                    <span>Concluída</span>
+                                </div>
+                            </div>
+                            
+                            <div class="appointment-item">
+                                <div class="appointment-info">
+                                    <h3>Vacinação</h3>
+                                    <p><i data-feather="calendar"></i> 25 Out 2023 - 02:15 PM</p>
+                                    <p><i data-feather="map-pin"></i> Posto de Saúde do Prenda</p>
+                                </div>
+                                <div class="appointment-status completed">
+                                    <i data-feather="check"></i>
+                                    <span>Concluída</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button id="btnAbrirComentario" class="action-btn" style="margin-top: 20px; background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                    <i data-feather="message-square"></i>
+                    <span>Deixar um Comentário</span>
+                </button>
+                
+                <div id="modalComentario" class="modal-overlay" style="display: none;">
+                    <div class="modal-content">
+                        <h3>Deixar um Comentário</h3>
+                        <div class="star-rating" style="font-size: 1.5rem; color: #f1c40f; margin-bottom: 15px; cursor: pointer;">
+                            <span class="star" data-value="1">☆</span>
+                            <span class="star" data-value="2">☆</span>
+                            <span class="star" data-value="3">☆</span>
+                            <span class="star" data-value="4">☆</span>
+                            <span class="star" data-value="5">☆</span>
+                        </div>
+                        <input type="hidden" id="ratingValue" value="0">
+                        <textarea id="textoComentario" placeholder="Escreva aqui sua mensagem..." rows="4"></textarea>
+                        <div class="modal-actions">
+                            <button id="btnSalvarComentario" class="btn-save">Enviar</button>
+                            <button id="btnFecharModal" class="btn-cancel">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+if (!usuario) {
+    window.location.href = 'login.html';
+}
+// Se o admin tentar entrar no dashboard do usuário, você pode permitir ou redirecionar.
+        feather.replace();
+    </script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
+
